@@ -1,0 +1,122 @@
+<form [formGroup]="emplyeeRecordForm">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Record</h4>
+    <span class="material-icons closeIcon" (click)="activeModal.dismiss()">
+      cancel
+    </span>
+  </div>
+
+  <div class="modal-body">
+    <div class="modal-scroll">
+      <div >
+        <div class="row">
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Basic Information</label> </div>
+          </div>
+          
+        
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>First Name<span class="madateField">*</span></label>
+              <input type="text" formControlName="first" class="form-control" [ngClass]="{'is-invalid': emplyeeRecordForm.get('first').errors && 
+              (emplyeeRecordForm.get('first').dirty || emplyeeRecordForm.get('first').touched)}" />
+              <span class="invalid-feedback">
+                <span *ngIf="emplyeeRecordForm.get('first').errors?.required">First Name is required </span>
+                <span *ngIf="emplyeeRecordForm.get('first').errors?.maxlength">More than 15 characters are not allowed
+                </span>
+                <span *ngIf="emplyeeRecordForm.get('first').errors?.pattern">Only characters are allowed</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Email<span class="madateField">*</span></label>
+              <input type="text" formControlName="email" class="form-control" [ngClass]="{'is-invalid': emplyeeRecordForm.get('email').errors && 
+              (emplyeeRecordForm.get('email').dirty || emplyeeRecordForm.get('email').touched)}"  />
+              <span class="invalid-feedback">
+                <span *ngIf="emplyeeRecordForm.get('email').errors?.required">email is required </span>
+                <span *ngIf="emplyeeRecordForm.get('email').errors?.pattern">Please enter valid email
+                </span>
+                
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Username<span class="madateField">*</span></label>
+              <input type="text"  formControlName="username" class="form-control"  [ngClass]="{'is-invalid': emplyeeRecordForm.get('username').errors && 
+              (emplyeeRecordForm.get('username').dirty || emplyeeRecordForm.get('username').touched)}"/>
+              <span class="invalid-feedback">
+                <span *ngIf="emplyeeRecordForm.get('username').errors?.required">username is required </span>                
+                <span *ngIf="emplyeeRecordForm.get('username').errors?.pattern">Only characters are allowed</span>
+              </span>
+            </div>
+       
+        </div>
+
+
+        
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Middle Name</label>
+            <input type="text" formControlName="middle" class="form-control"   [ngClass]="{'is-invalid': emplyeeRecordForm.get('middle').errors && 
+            (emplyeeRecordForm.get('middle').dirty || emplyeeRecordForm.get('middle').touched)}" />
+            <span class="invalid-feedback">
+              <span *ngIf="emplyeeRecordForm.get('middle').errors?.required">Middle Name is required </span>
+            
+              <span *ngIf="emplyeeRecordForm.get('middle').errors?.pattern">Only characters are allowed</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Contact No<span class="madateField">*</span></label>
+            <input type="text" formControlName="contact" class="form-control"  [ngClass]="{'is-invalid': emplyeeRecordForm.get('contact').errors && 
+            (emplyeeRecordForm.get('contact').dirty || emplyeeRecordForm.get('contact').touched)}"  />
+            <span class="invalid-feedback">
+              <span *ngIf="emplyeeRecordForm.get('contact').errors?.required">contact is required </span>            
+              <span *ngIf="emplyeeRecordForm.get('contact').errors?.pattern">Enter valid contact number.</span>
+            </span>
+          </div>
+     
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Last Name<span class="madateField">*</span></label>
+          <input type="text" formControlName="last" class="form-control"  />
+          <span class="invalid-feedback">
+            <span *ngIf="emplyeeRecordForm.get('last').errors?.required">Lat Name is required </span>
+          
+            <span *ngIf="emplyeeRecordForm.get('last').errors?.pattern">Only characters are allowed</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Website</label>
+          <input type="text"  formControlName="website" class="form-control"  [ngClass]="{'is-invalid': emplyeeRecordForm.get('website').errors && 
+          (emplyeeRecordForm.get('website').dirty || emplyeeRecordForm.get('website').touched)}"  />
+          <span class="invalid-feedback">
+            <span *ngIf="emplyeeRecordForm.get('website').errors?.required">First Name is required </span>
+            <span *ngIf="emplyeeRecordForm.get('website').errors?.maxlength">More than 15 characters are not allowed
+            </span>
+            <span *ngIf="emplyeeRecordForm.get('website').errors?.pattern">Only characters are allowed</span>
+          </span>
+        </div>
+   
+    </div>
+  
+    
+      </div>
+
+     
+    
+    </div>
+  </div>
+  <div>
+ 
+    <button mat-flat-button color="primary" style="float: right;margin-bottom: 3px;" (click)="saveData()" [disabled] = "!emplyeeRecordForm.valid">Save</button>
+  
+  </div>
+  </div>
+
+  
+</form>
+
+
+
